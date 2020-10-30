@@ -1,3 +1,8 @@
+/*Sydney Huang
+301068497
+COMP229-F2020-Mideterm[301068497]*/
+
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -40,10 +45,10 @@ router.post('/add', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
     let newBook = book ({
-      "Name": req.body.Name,
-      "Price": req.body.Price,
-      "Author": req.body.Author,
-      "Genre": req.body.Genre
+      "Title": req.body.title,
+      "Price": req.body.price,
+      "Author": req.body.author,
+      "Genre": req.body.genre
 
 });
 book.create(newBook, (err, books) =>{
@@ -91,10 +96,10 @@ router.post('/:id', (req, res, next) => {
     let id = req.params.id
     let updatedBook = book({
       "_id": id,
-      "Name": req.body.Name,
-      "Price": req.body.Price,
-      "Author": req.body.Author,
-      "Genre": req.body.Genre
+      "Title": req.body.title,
+      "Price": req.body.price,
+      "Author": req.body.author,
+      "Genre": req.body.genre
     });
     book.updateOne({_id: id },updatedBook, (err)=>{
       if(err)
